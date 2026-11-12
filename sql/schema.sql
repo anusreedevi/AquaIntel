@@ -31,6 +31,37 @@ CREATE TABLE IF NOT EXISTS facilities (
         ON DELETE CASCADE
 );
 
+-- Sample facility records for demonstration.
+-- The original assignment dataset does not contain facilities data.
+-- These are synthetic records, not verified real-world facilities.
+
+INSERT INTO facilities (
+    utility_id,
+    facility_name,
+    facility_type,
+    city,
+    state
+)
+SELECT
+    u.utility_id,
+    sample.facility_name,
+    sample.facility_type,
+    u.city,
+    u.state
+FROM utilities u
+CROSS JOIN (
+    VALUES
+        ('North Water Treatment Plant', 'Water Treatment Plant'),
+        ('East Pump Station', 'Pump Station'),
+        ('Central Water Storage Tank', 'Storage Reservoir')
+) AS sample(facility_name, facility_type)
+WHERE u.registry_id = 'PA1111'
+AND NOT EXISTS (
+    SELECT 1
+    FROM facilities f
+    WHERE f.utility_id = u.utility_id
+      AND f.facility_name = sample.facility_name
+);
 
 -- 3. PROCUREMENT NOTICES TABLE
 CREATE TABLE IF NOT EXISTS procurement_notices (
