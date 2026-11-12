@@ -1,0 +1,52 @@
+utility_name,person_name,title,email,phone,source_url,seen_date
+Ashbrook City Water,Taylor Nguyen,Plant Superintendent,,(555) 011-3530,https://www.ashbrook-water.example.org/board/minutes-2025-01.pdf,2025-01-04
+Ashbrook Water Dept,Casey Sato,Chief Operator,csato@ashbrook-water.example.org,,https://www.ashbrook-water.example.org/board/minutes-2026-07.pdf,2026-07-20
+Brennan Twp. Municipal Auth.,Avery Patel,Plant Superintendent,apatel@brennan-water.example.org,(555) 016-4207,https://www.brennan-water.example.org/staff,2025-10-24
+Boro of Cedar Falls Water,Reese Hartwell,Utility Engineer,rhartwell@cedarfalls-water.example.org,(555) 010-7297,https://www.cedarfalls-water.example.org/board/minutes-2025-11.pdf,2025-11-19
+Cedar Falls Water Works,Blake Brennan,Operations Manager,bbrennan@cedarfalls-water.example.org,(555) 011-2377,https://www.cedarfalls-water.example.org/staff,2026-01-26
+Boro of Cedar Falls Water,Riley Sato,Chief Operator,rsato@cedarfalls-water.example.org,(555) 014-7651,https://www.cedarfalls-water.example.org/board/minutes-2026-05.pdf,2026-05-25
+Dunmore Valley Water Authority,Parker Brennan,Director of Engineering,,(555) 016-2186,https://www.dunmore-water.example.org/staff,2026-01-22
+Dunmore Valley WA,Quinn Brennan,Finance Director,qbrennan@dunmore-water.example.org,,https://www.dunmore-water.example.org/staff,2026-06-22
+Dunmore Valley Water Authority,Parker Sorensen,Plant Superintendent,psorensen@dunmore-water.example.org,,https://www.dunmore-water.example.org/staff,2026-06-14
+Elkton Regional Sewer Auth,Riley Sato,Executive Director,,(555) 014-9701,https://www.elkton-water.example.org/board/minutes-2026-03.pdf,2026-03-28
+Fairview Heights Water,Riley Sato,Utility Engineer,rsato@fairviewheights-water.example.org,(555) 010-1251,https://www.fairviewheights-water.example.org/staff,2026-10-06
+Fairview Hts Water Co,Blake Mbeki,Superintendent of Water Operations,bmbeki@fairviewheights-water.example.org,,https://www.fairviewheights-water.example.org/board/minutes-2024-12.pdf,2024-12-28
+Fairview Hts Water Co,Cameron Whitlock,Board Secretary,cwhitlock@fairviewheights-water.example.org,,https://www.fairviewheights-water.example.org/staff,2026-03-03
+Glenmore Utilities,Casey Whitlock,Utility Engineer,cwhitlock@glenmore-water.example.org,(555) 010-2158,https://www.glenmore-water.example.org/board/minutes-2025-01.pdf,2025-01-22
+Glenmore Municipal Utilities,Sam Patel,Executive Director,,(555) 018-5619,https://www.glenmore-water.example.org/board/minutes-2025-02.pdf,2025-02-18
+Glenmore Utilities,Jordan Chen,Chief Operator,,(555) 014-6966,https://www.glenmore-water.example.org/board/minutes-2025-11.pdf,2025-11-22
+Hollis Creek Water District,Jordan Delgado,Superintendent of Water Operations,jdelgado@hollis-water.example.org,,https://www.hollis-water.example.org/board/minutes-2025-09.pdf,2025-09-29
+Ironwood City Utilities,Blake Kowalski,Superintendent of Water Operations,bkowalski@ironwood-water.example.org,,https://www.ironwood-water.example.org/staff,2026-01-27
+Ironwood City Utilities,Rowan Iyer,Executive Director,riyer@ironwood-water.example.org,,https://www.ironwood-water.example.org/staff,2025-01-18
+Juniper Lake Authority,Blake Moreno,Purchasing Agent,bmoreno@juniperlake-water.example.org,(555) 019-7381,https://www.juniperlake-water.example.org/board/minutes-2025-11.pdf,2025-11-25
+Juniper Lake Authority,Casey Delgado,Finance Director,cdelgado@juniperlake-water.example.org,,https://www.juniperlake-water.example.org/board/minutes-2025-05.pdf,2025-05-17
+Juniper Lake Borough Authority,Blake Moreno,Board Secretary,bmoreno@juniperlake-water.example.org,(555) 010-4767,https://www.juniperlake-water.example.org/staff,2026-07-29
+Kingsbridge W&S Authority,Reese Lindqvist,Plant Superintendent,rlindqvist@kingsbridge-water.example.org,(555) 010-9707,https://www.kingsbridge-water.example.org/board/minutes-2026-02.pdf,2026-02-16
+Laurel Hill Township Water,Robin Brennan,Board Secretary,rbrennan@laurelhill-water.example.org,,https://www.laurelhill-water.example.org/board/minutes-2025-05.pdf,2025-05-04
+Millbrook JSA,Taylor Sato,Superintendent of Water Operations,tsato@millbrook-water.example.org,,https://www.millbrook-water.example.org/board/minutes-2024-12.pdf,2024-12-28
+Millbrook Joint Sewer Auth.,Rowan Brennan,Business Manager,rbrennan@millbrook-water.example.org,,https://www.millbrook-water.example.org/staff,2026-09-07
+Northgate WA,Elliot Moreno,Utility Engineer,emoreno@northgate-water.example.org,(555) 014-3186,https://www.northgate-water.example.org/staff,2026-10-12
+Oakridge Boro Water,Quinn Lindqvist,Superintendent of Water Operations,qlindqvist@oakridge-water.example.org,,https://www.oakridge-water.example.org/board/minutes-2025-05.pdf,2025-05-14
+Oakridge Borough Water Department,Robin Chen,Operations Manager,rchen@oakridge-water.example.org,(555) 014-2406,https://www.oakridge-water.example.org/board/minutes-2025-06.pdf,2025-06-27
+Oakridge Township Sewer Authority,Taylor Lopez,Business Manager,tlopez@oakridge-water.example.org,(555) 013-2222,https://www.oakridge-water.example.org/staff,2025-03-08
+Oakridge Township Sewer Auth,Blake Sato,Utility Engineer,,(555) 018-5580,https://www.oakridge-water.example.org/board/minutes-2026-07.pdf,2026-07-01
+PCWA,Kendall Mbeki,Plant Superintendent,,,https://www.prescott-water.example.org/board/minutes-2025-06.pdf,2025-06-08
+Quarry Run Water Co-op,Drew Moreno,Plant Superintendent,dmoreno@quarryrun-water.example.org,(555) 015-1028,https://www.quarryrun-water.example.org/board/minutes-2025-11.pdf,2025-11-26
+Quarry Run Water Cooperative,Morgan Kowalski,Executive Director,mkowalski@quarryrun-water.example.org,,https://www.quarryrun-water.example.org/board/minutes-2025-10.pdf,2025-10-08
+Riverton City Water,Dana Brennan,Utility Engineer,dbrennan@riverton-water.example.org,(555) 010-5597,https://www.riverton-water.example.org/board/minutes-2026-07.pdf,2026-07-12
+City of Riverton,Casey Nguyen,Director of Engineering,cnguyen@riverton-water.example.org,(555) 015-8008,https://www.riverton-water.example.org/board/minutes-2026-09.pdf,2026-09-25
+Riverton Water Co.,Cameron Kowalski,Operations Manager,,(555) 017-3270,https://www.riverton-water.example.org/board/minutes-2025-01.pdf,2025-01-03
+Riverton Water Co,Jordan Sorensen,Chief Operator,,(555) 014-5878,https://www.riverton-water.example.org/board/minutes-2026-02.pdf,2026-02-05
+Riverton Water Company,Rowan Nguyen,Director of Engineering,rnguyen@riverton-water.example.org,(555) 011-3741,https://www.riverton-water.example.org/staff,2025-01-04
+Stillwater MA,Blake Mbeki,Board Secretary,bmbeki@stillwater-water.example.org,(555) 017-8002,https://www.stillwater-water.example.org/staff,2026-06-04
+Thornbury Regional Water,Taylor Patel,Utility Engineer,tpatel@thornbury-water.example.org,(555) 015-5232,https://www.thornbury-water.example.org/staff,2025-03-20
+Upland Hills WD,Sam Whitlock,Plant Superintendent,swhitlock@uplandhills-water.example.org,,https://www.uplandhills-water.example.org/staff,2026-01-21
+Upland Hills Water Dist.,Kendall Sato,Finance Director,ksato@uplandhills-water.example.org,,https://www.uplandhills-water.example.org/staff,2025-05-27
+Upland Hills Water District,Taylor Sato,Superintendent of Water Operations,tsato@uplandhills-water.example.org,(555) 016-6112,https://www.uplandhills-water.example.org/staff,2026-10-02
+Valleyview Sanitary Authority,Kendall Iyer,Business Manager,,(555) 018-8670,https://www.valleyview-water.example.org/staff,2025-07-22
+Valleyview Sanitary Authority,Avery Moreno,Chief Operator,amoreno@valleyview-water.example.org,(555) 017-2392,https://www.valleyview-water.example.org/staff,2025-04-08
+Westfield Water Works,Avery Iyer,Executive Director,aiyer@westfield-water.example.org,(555) 012-5125,https://www.westfield-water.example.org/board/minutes-2025-05.pdf,2025-05-02
+Boro of Cedar Falls Water,Kendall Iyer,Board Secretary,kiyer@cedarfalls-water.example.org,,https://www.cedarfalls-water.example.org/staff,2026-01-17
+Hollis Ck Water District,Quinn Brennan,Director of Engineering,qbrennan@hollis-water.example.org,,https://www.hollis-water.example.org/staff,2026-09-17
+Stillwater Muni Authority,Parker Brennan,Executive Director,pbrennan@stillwater-water.example.org,,https://www.stillwater-water.example.org/staff,2026-07-08
+Cedar Falls Water Works,"Sato, Riley",Director of Operations,,,https://www.cedarfalls-water.example.org/staff,2026-08-23

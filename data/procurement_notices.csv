@@ -1,0 +1,55 @@
+notice_url,utility_name,title,category,posted_date,due_date,estimated_value
+https://www.ashbrook-water.example.org/bids/2025-001,Ashbrook Water Dept,Advanced metering infrastructure upgrade,Meters and AMI,2025-11-30,2025-12-17,"$212,000"
+https://www.ashbrook-water.example.org/bids/2026-002,Ashbrook City Water,Annual supply of sodium hypochlorite,Chemicals,2026-07-12,2026-07-28,24000
+https://www.brennan-water.example.org/bids/2025-003,Brennan Township Municipal Authority,Drinking water compliance lab testing,Lab services,2025-09-01,2025-09-22,"$59,000"
+https://www.brennan-water.example.org/bids/2026-004,Brennan Township Municipal Authority,Drinking water compliance lab testing,Lab services,2026-07-08,2026-07-24,
+https://www.brennan-water.example.org/bids/2026-005,Brennan Township Municipal Authority,"Filter media replacement, Plant 2",Filter media,2026-01-10,2026-02-12,"$210,000"
+https://www.brennan-water.example.org/bids/2026-005,Brennan Twp. Municipal Auth.,"Filter media replacement, Plant 2",Filter media,2026-01-10,2026-02-12,"$210,000"
+https://www.cedarfalls-water.example.org/bids/2025-006,Boro of Cedar Falls Water,"Ductile iron pipe and fittings, FY2027",Pipe and fittings,2025-10-30,2025-11-17,"$17,000"
+https://www.cedarfalls-water.example.org/bids/2025-007,Cedar Falls Water Works,"Filter media replacement, Plant 3",Filter media,2025-09-27,2025-10-31,121000
+https://www.dunmore-water.example.org/bids/2026-008,Dunmore Valley Water Authority,"Design services for water main replacement, Phase 4",Engineering services,2026-01-08,2026-02-10,136000
+https://www.elkton-water.example.org/bids/2026-009,Elkton RSA,"Ductile iron pipe and fittings, FY2027",Pipe and fittings,2026-03-29,2026-04-22,
+https://www.fairviewheights-water.example.org/bids/2026-010,Fairview Heights Water,"Ductile iron pipe and fittings, FY2027",Pipe and fittings,2026-01-09,2026-02-12,89000
+https://www.fairviewheights-water.example.org/bids/2025-011,Fairview Heights Water Company,Trench restoration and paving contract,Paving and restoration,2025-08-25,2025-09-13,243000
+https://www.fairviewheights-water.example.org/bids/2025-011,Fairview Heights Water,Trench restoration and paving contract,Paving and restoration,2025-08-25,2025-09-13,243000
+https://www.fairviewheights-water.example.org/bids/2025-012,Fairview Heights Water,Biosolids hauling and disposal,Sludge hauling,2025-09-04,2025-10-16,74000
+https://www.fairviewheights-water.example.org/bids/2025-012,Fairview Heights Water,Biosolids hauling and disposal,Sludge hauling,2025-09-04,2025-10-16,74000
+https://www.glenmore-water.example.org/bids/2026-013,Glenmore Utilities,Advanced metering infrastructure upgrade,Meters and AMI,2026-08-31,2026-10-15,17000
+https://www.glenmore-water.example.org/bids/2025-014,Glenmore Muni Utilities,Drinking water compliance lab testing,Lab services,2025-07-17,2025-08-31,22000
+https://www.hollis-water.example.org/bids/2026-015,Hollis Ck Water District,Drinking water compliance lab testing,Lab services,2026-06-09,2026-07-19,93000
+https://www.juniperlake-water.example.org/bids/2025-016,Juniper Lake Borough Authority,Advanced metering infrastructure upgrade,Meters and AMI,2025-11-26,2025-12-24,"$126,000"
+https://www.kingsbridge-water.example.org/bids/2026-017,Kingsbridge W&S Authority,Advanced metering infrastructure upgrade,Meters and AMI,2026-01-29,2026-03-07,158000
+https://www.laurelhill-water.example.org/bids/2025-018,Laurel Hill Water,Biosolids hauling and disposal,Sludge hauling,2025-11-17,2025-12-04,"$232,000"
+https://www.laurelhill-water.example.org/bids/2026-019,Laurel Hill Township Water,Drinking water compliance lab testing,Lab services,2026-02-25,2026-04-05,
+https://www.laurelhill-water.example.org/bids/2025-020,Laurel Hill Twp Water,"Ductile iron pipe and fittings, FY2027",Pipe and fittings,2025-12-26,2026-01-12,"$2,000"
+https://www.millbrook-water.example.org/bids/2026-021,Millbrook Joint Sewer Authority,Biosolids hauling and disposal,Sludge hauling,2026-09-23,2026-10-20,
+https://www.millbrook-water.example.org/bids/2026-022,Millbrook JSA,Biosolids hauling and disposal,Sludge hauling,2026-03-01,2026-03-22,31000
+https://www.northgate-water.example.org/bids/2026-023,Northgate Water Authority,"Ductile iron pipe and fittings, FY2027",Pipe and fittings,2026-09-07,2026-10-12,191000
+https://www.northgate-water.example.org/bids/2026-024,Northgate Water Auth,"Design services for water main replacement, Phase 3",Engineering services,2026-04-27,2026-05-20,
+https://www.oakridge-water.example.org/bids/2026-025,Oakridge Water Dept,SCADA system integration and maintenance,SCADA and controls,2026-04-25,2026-05-19,
+https://www.oakridge-water.example.org/bids/2025-026,Oakridge Township Sewer Authority,"Design services for water main replacement, Phase 2",Engineering services,2025-09-06,2025-10-15,
+https://www.oakridge-water.example.org/bids/2026-027,Oakridge Township Sewer Auth,Booster pump station rehabilitation,Pumps,2026-10-15,2026-10-30,204000
+https://www.oakridge-water.example.org/bids/2026-028,Oakridge Twp Sewer,Biosolids hauling and disposal,Sludge hauling,2026-03-15,2026-04-20,
+https://www.oakridge-water.example.org/bids/2026-028,Oakridge Township Sewer Auth,Biosolids hauling and disposal,Sludge hauling,2026-03-15,2026-04-20,
+https://www.prescott-water.example.org/bids/2026-029,Prescott County Water Authority,Booster pump station rehabilitation,Pumps,2026-02-24,2026-03-10,"$234,000"
+https://www.quarryrun-water.example.org/bids/2025-030,Quarry Run Water Co-op,"Ductile iron pipe and fittings, FY2027",Pipe and fittings,2025-09-24,2025-10-20,
+https://www.riverton-water.example.org/bids/2026-031,City of Riverton,"Ductile iron pipe and fittings, FY2027",Pipe and fittings,2026-04-10,2026-05-23,
+https://www.riverton-water.example.org/bids/2026-032,Riverton City Water,Advanced metering infrastructure upgrade,Meters and AMI,2026-08-13,2026-09-25,
+https://www.riverton-water.example.org/bids/2026-033,Riverton Water Co,Advanced metering infrastructure upgrade,Meters and AMI,2026-01-22,2026-02-13,"$5,000"
+https://www.riverton-water.example.org/bids/2025-034,Riverton Water Co.,Advanced metering infrastructure upgrade,Meters and AMI,2025-08-09,2025-09-04,
+https://www.stillwater-water.example.org/bids/2025-035,Stillwater Municipal Authority,"Filter media replacement, Plant 2",Filter media,2025-10-03,2025-11-06,68000
+https://www.stillwater-water.example.org/bids/2025-035,Stillwater MA,"Filter media replacement, Plant 2",Filter media,2025-10-03,2025-11-06,68000
+https://www.stillwater-water.example.org/bids/2026-036,Stillwater MA,Trench restoration and paving contract,Paving and restoration,2026-01-04,2026-02-13,"$236,000"
+https://www.uplandhills-water.example.org/bids/2025-037,Upland Hills Water District,"Filter media replacement, Plant 1",Filter media,2025-08-09,2025-09-20,"$48,000"
+https://www.uplandhills-water.example.org/bids/2026-038,Upland Hills Water District,Advanced metering infrastructure upgrade,Meters and AMI,2026-08-18,2026-10-01,
+https://www.uplandhills-water.example.org/bids/2026-039,Upland Hills Water Dist.,"Filter media replacement, Plant 1",Filter media,2026-01-18,2026-03-03,
+https://www.valleyview-water.example.org/bids/2026-040,Valleyview Sanitary Authority,Annual supply of sodium hypochlorite,Chemicals,2026-02-12,2026-03-26,
+https://www.valleyview-water.example.org/bids/2026-041,Valley View Sanitary Authority,"Filter media replacement, Plant 4",Filter media,2026-02-09,2026-03-07,179000
+https://www.westfield-water.example.org/bids/2025-042,Westfield Boro Water Works,"Filter media replacement, Plant 4",Filter media,2025-07-14,2025-08-09,
+https://www.westfield-water.example.org/bids/2025-042,Westfield Water Works,"Filter media replacement, Plant 4",Filter media,2025-07-14,2025-08-09,
+https://www.ironwood-water.example.org/bids/2025-900,Ironwood Utilities,Water treatment plant chemical feed upgrade,Engineering services,2025-09-09,2025-10-09,"1,200,000"
+https://bids.example.net/listing/55821,Tri-County Water Consortium,Hydrant replacement program,Pipe and fittings,2026-10-22,2026-11-23,
+https://www.dunmore-water.example.org/bids/2026-101,Dunmore Valley WA,Ductile iron pipe and fittings FY2027,Pipe and fittings,2026-10-20,2026-11-24,"$480,000"
+https://www.glenmore-water.example.org/bids/2026-102,Glenmore Utilities,SCADA system integration and maintenance,SCADA and controls,2026-10-28,2026-12-05,
+https://www.elkton-water.example.org/bids/2026-103,Elkton RSA,Biosolids hauling and disposal,Sludge hauling,2026-10-15,2026-11-18,95000
+https://www.riverton-water.example.org/bids/2026-104,Riverton Water,Booster pump station rehabilitation,Pumps,2026-10-30,2026-12-01,"$310,000"
