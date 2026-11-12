@@ -1,93 +1,138 @@
 # AquaIntel – Utility Data Management System
 
-## 1. Project Overview
+## About the Project
 
-AquaIntel is a Python project that imports utility, procurement notice, and contact information from CSV files into a PostgreSQL database.
+AquaIntel is a Python project that I developed to manage utility information collected from different CSV files. The main objective was to bring utility registry details, procurement notices, and contact information into one PostgreSQL database and connect the records that belong to the same utility.
 
-It also matches utility names from the contact and procurement files with the main utility registry. Since names may be written differently in different files, the project uses name cleaning and fuzzy matching to find possible matches.
+One challenge I came across was that utility names were not always written in the same way across the CSV files. For example, one file might contain "Brennan Twp. Municipal Auth." while another contains "Brennan Township Municipal Authority". Since both can refer to the same utility, comparing names directly would not be reliable.
 
-If a match is not clear, it is marked for manual review instead of linking it to the wrong utility.
+To handle this, I implemented a name-cleaning and fuzzy-matching process using Python and RapidFuzz. The system automatically links clear matches and keeps uncertain records for manual review.
 
-## 2. Technologies Used
+## Technologies Used
 
-- Python
-- PostgreSQL
-- Pandas
-- Psycopg2
-- RapidFuzz
-- Python-dotenv
-- SQL
+I used Python for data processing and database operations, PostgreSQL for storing the information, and Pandas for reading and cleaning the CSV files. Psycopg2 is used to connect Python with PostgreSQL, while RapidFuzz handles utility name comparisons.
 
-## 3. Project Folder Structure
+I also used Supabase to host a PostgreSQL database so the project could be demonstrated without requiring someone to set up a local database first.
+
+## How I Designed the Database
+
+I created four tables in PostgreSQL: `utilities`, `facilities`, `procurement_notices`, and `contacts`.
+
+The `utilities` table acts as the main registry. It stores each utility's registry ID, name, location, county, state, and population served. I used the registry ID as a unique identifier to avoid storing the same utility more than once.
+
+The `procurement_notices` and `contacts` tables store information from the other two CSV files. Both tables contain a `utility_id` to connect a record to the main utility registry. I also added `match_status` and `match_confidence` fields to keep track of the matching results. When a record is not confidently matched, its suggested utility ID is stored separately in `candidate_utility_id`.
+
+The `facilities` table stores facility details linked to utilities. The supplied CSV files did not include a separate facilities dataset, so I added three sample facility records for demonstration. These are synthetic records, not actual verified facility information.
+
+## Importing the CSV Files
+
+I implemented the data import process in `src/ingestion.py`.
+
+First, I used Pandas to read the three CSV files. Before inserting the utility records, I checked for missing registry IDs and utility names and removed duplicate registry IDs. The original utility registry contained 27 records, but after cleaning, 25 unique utilities remained.
+
+For procurement notices, I noticed that some notice URLs appeared more than once. Since the notice URL identifies a notice, I used it as a unique field and removed duplicate URLs before inserting the records.
+
+For contacts, I generated a SHA-256 key from the source record details. This gives each source contact record a consistent identifier and helps prevent duplicate insertions when the script is executed again.
+
+I also used PostgreSQL's `ON CONFLICT DO NOTHING` to avoid inserting records that already exist. This makes the ingestion process safe to run multiple times without creating duplicate records.
+
+The database operations are handled using transactions. If everything succeeds, the changes are committed. If an error occurs, the transaction is rolled back, and the connection is closed.
+
+## Matching Utility Names
+
+I implemented the matching logic separately in `src/matching.py` so that the ingestion process and matching process remain easy to understand and maintain.
+
+Before comparing utility names, I created a `normalize_name()` function. It converts names to lowercase, removes punctuation, and expands common abbreviations such as:
+
+- `Twp.` into `Township`
+- `Auth.` into `Authority`
+- `Dept.` into `Department`
+- `Dist.` into `District`
+- `Boro.` into `Borough`
+
+After cleaning the names, I used RapidFuzz's `token_set_ratio()` function to compare the source utility name with the names in the main registry. It returns a similarity score between 0 and 100.
+
+I used the following rules to decide the matching status:
+
+- A score of 90 or above is considered a match only when the best candidate is at least 10 points ahead of the second-best candidate.
+- A score of 75 or above that does not satisfy the matching condition is marked for review.
+- Scores below 75 are marked as unmatched.
+
+I added the second-candidate check because some utilities have similar names. Automatically selecting one of them based only on a high score could connect a record to the wrong utility.
+
+For records marked as review, I save the suggested utility ID in `candidate_utility_id` and leave the actual `utility_id` empty. This allows someone to verify the record before making the final connection.
+
+After matching, the results are saved back into the contacts and procurement tables.
+
+## Matching Results
+
+After running the matching process with the supplied data, I obtained the following results.
+
+**Contacts – 51 records**
+
+- Matched: 47
+- Review: 4
+- Unmatched: 0
+
+**Procurement Notices – 48 records**
+
+- Matched: 41
+- Review: 6
+- Unmatched: 1
+
+The records marked for review are not automatically linked to a utility. They can be checked manually to avoid incorrect associations.
+
+## SQL Queries
+
+I created three queries in `sql/queries.sql` to retrieve information from the database.
+
+The first query retrieves open procurement notices by checking whether the due date is later than the current date. It also displays the corresponding utility's county and population served.
+
+The second query finds contacts whose job titles contain operations-related or engineering-related terms. I used `DISTINCT ON` with the contact's `seen_date` to retrieve the most recently seen matching contact for each utility.
+
+The third query identifies utilities serving more than 50,000 people that have not received a matched procurement notice during the last 12 months. I used `NOT EXISTS` to check whether a qualifying notice is available for each utility.
+
+## Testing
+
+I added basic unit tests in `test/test_ingestion.py` using Python's built-in `unittest` module.
+
+The tests check whether utility names are normalized correctly, whether an exact utility match is identified, and whether an unrelated utility name is handled as unmatched.
+
+To run the tests:
 
 
-AquaIntel/
-│
-├── data/
-│   ├── utilities_registry.csv
-│   ├── procurement_notices.csv
-│   └── contacts.csv
-│
-├── sql/
-│   └── schema.sql
-|   └── queries.sql
-│
-├── src/
-│   ├── __init__.py
-│   ├── database.py
-│   ├── ingestion.py
-│   └── matching.py
-│
-│   
-│
-├── test/
-│   └── test_ingestion.py
-│
-├── .env
-├── .gitignore
-├── requirements.txt
-└── README.md
+py -m unittest discover -s test
 
 
-## 4. Database Tables
+All three implemented tests passed successfully.
 
-I created four tables in PostgreSQL:
+## Running the Project
 
-- **utilities:** Stores utility details such as name, registry ID, city, county, state, and population served.
-- **facilities:** Stores facility details linked to the corresponding utility.
-- **procurement_notices:** Stores procurement notice information, including title, dates, category, and estimated value.
-- **contacts:** Stores contact information such as person name, job title, email, and phone number.
+### 1. Clone the repository
 
-The contacts and procurement notices tables also store matching status and confidence scores.
 
-## 5. How to Set Up the Project
+git clone https://github.com/anusreedevi/AquaIntel.git
+cd AquaIntel
 
-### Step 1: Create a virtual environment
+
+### 2. Create and activate a virtual environment
 
 
 py -m venv venv
+venv\Scripts\Activate
 
 
-Activate it using:
-
-
-venv\Scripts\activate
-
-
-### Step 2: Install the required packages
+### 3. Install the required packages
 
 
 pip install -r requirements.txt
 
 
-### Step 3: Create the database
+### 4. Configure the database
 
-Open PostgreSQL or pgAdmin and create a database named: aquaintel
+Create a `.env` file in the project root with the PostgreSQL connection details.
 
-
-### Step 4: Configure the database connection
-
-Create a `.env` file in the main project folder and add your PostgreSQL details:
+For a local PostgreSQL database:
 
 
 DB_HOST=localhost
@@ -97,102 +142,63 @@ DB_USER=postgres
 DB_PASSWORD=your_password
 
 
-Replace `your_password` with your PostgreSQL password.
+For the hosted Supabase database, use the Session Pooler connection details from the Supabase project instead.
 
-### Step 5: Create the tables
+### 5. Create the database tables
 
-Open `sql/schema.sql` in pgAdmin and execute the SQL statements to create the tables.
+Execute `sql/schema.sql` in pgAdmin or the Supabase SQL Editor.
 
-## 6. How to Run the Project
+### 6. Import the CSV data
 
-Run the following commands from the main AquaIntel project folder.
-
-### First: Import the CSV data
+Run the following command from the project root:
 
 
 py -m src.ingestion
 
 
-This script reads the three CSV files and inserts their data into PostgreSQL.
-
-It also handles duplicate records so that running the script again does not create duplicate utilities, procurement notices, or contacts.
-
-### Second: Match utilities with contacts and notices
+### 7. Run utility matching
 
 
 py -m src.matching
 
 
-This script compares utility names from the contacts and procurement files with the names in the utility registry.
+### 8. Add the sample facilities
 
-The matching results are saved in the database.
+Execute `sql/schema.sql` again after ingestion. The sample facility records depend on the utilities already being present in the database.
 
-### Third: Run the SQL queries
+### 9. Run the SQL queries
 
-Open `sql/queries.sql` in pgAdmin and execute the queries.
+Open `sql/queries.sql` in pgAdmin or the Supabase SQL Editor and execute the queries individually.
 
-The file contains three queries:
+### 10. Run the tests
 
-1. Finds open procurement notices and displays the related utility's county and population.
-2. Finds the latest operations or engineering-related contact for each matched utility.
-3. Finds utilities serving more than 50,000 people that have not posted a procurement notice in the last 12 months.
-
-## 7. How Utility Matching Works
-
-Utility names may appear differently in different CSV files. For example, a name may contain abbreviations such as `Twp.` or `Auth.`.
-
-To handle this, I used Python to clean the names before comparing them.
-
-The project uses the RapidFuzz library to calculate how closely two utility names match.
-
-Based on the matching score, records are classified into three categories:
-
-| Matching condition | Status |
-|---|---|
-| Score is 90 or above and is at least 10 points higher than the second candidate | Matched |
-| Score is 75 or above but does not meet the matched condition | Review |
-| Score is below 75 | Unmatched |
-
-- **Matched:** A suitable utility is identified and linked.
-- **Review:** A possible utility is identified, but the match needs to be checked.
-- **Unmatched:** No suitable utility is found.
-
-For review and unmatched records, the candidate utility ID is saved when available. This helps with checking the records later.
-
-## 8. Data Handling and Limitations
-
-- Duplicate registry IDs are removed before importing utility records.
-- Duplicate procurement notice URLs are skipped.
-- Contact records use a generated unique key to avoid importing the same record again.
-- Missing values such as email, phone number, population, and estimated value are allowed to remain empty.
-- Some utility names are similar, so not every record can be matched automatically.
-- Contact matching mainly uses utility names because city and county details are not available in the contacts CSV.
-- Records marked for review may need manual verification.
-- The facilities table is created, but the provided CSV files do not contain facility data.
-
-## 9. Running the Tests
-
-To run the unit tests, execute:
 
 py -m unittest discover -s test
 
 
-The test check:
+## Hosted Database
 
-- Utility name normalization.
-- Successful utility matching.
-- Handling of unmatched utility names.
+I also configured the project to connect to a hosted PostgreSQL database using Supabase. This makes it possible to keep the demonstration data available online rather than requiring a separate local database setup.
 
-## 10. Handling Larger Data and Daily Updates
+The current hosted database contains:
 
-If the project needs to handle around 50,000 utilities, a few improvements can help:
+- 25 utility records
+- 48 procurement notices
+- 51 contact records
+- 3 sample facility records
 
-- Use PostgreSQL bulk loading to import large amounts of data faster.
-- Add indexes to frequently searched database columns.
-- Process records in batches instead of one at a time.
-- Save normalized utility names so they do not need to be cleaned repeatedly.
-- Import only new or updated records during regular updates.
-- Schedule the scripts to run automatically every night using Windows Task Scheduler or Linux cron.
-- Keep logs of errors and records that need manual review.
+The database connection is configured through environment variables, and SSL is enabled for the hosted connection. Database credentials are kept in the local `.env` file and are not included in the GitHub repository.
 
-These improvements can help the project handle larger datasets and regular updates more efficiently.
+The Supabase project is private, so anyone who needs to inspect the live database must be given appropriate access separately.
+
+## What I Would Improve Next
+
+The current version covers CSV ingestion, duplicate handling, utility matching, manual review identification, and SQL-based data retrieval.
+
+If I extend this project further, I would like to add a simple manual review process where uncertain matches can be approved or rejected. I would also improve matching by considering additional location details such as city and county, add more tests, and automate the ingestion process for regular updates.
+
+For larger datasets, I would consider PostgreSQL bulk loading, batch processing, and incremental updates so that only new or changed records need to be processed.
+
+## Repository
+
+GitHub: https://github.com/anusreedevi/AquaIntel
